@@ -346,6 +346,34 @@ export const providers = [
         required: true
       }
     ]
+  },
+  {
+    label: 'Dameng',
+    value: 'jdbc-dameng',
+    defaultProps: [
+      {
+        key: 'jdbc-driver',
+        value: '',
+        required: true,
+        description: 'e.g. dm.jdbc.driver.DmDriver'
+      },
+      {
+        key: 'jdbc-url',
+        value: '',
+        required: true,
+        description: 'e.g. jdbc:dm://localhost:5236/your_database'
+      },
+      {
+        key: 'jdbc-user',
+        value: '',
+        required: true
+      },
+      {
+        key: 'jdbc-password',
+        value: '',
+        required: true
+      }
+    ]
   }
 ]
 
@@ -583,6 +611,21 @@ const relationalColumnTypeMap = {
     'short unsigned',
     'string',
     'time',
+    'timestamp',
+    'varchar'
+  ],
+  'jdbc-dameng': [
+    'boolean',
+    'byte',
+    'char',
+    'date',
+    'decimal',
+    'double',
+    'float',
+    'integer',
+    'long',
+    'short',
+    'string',
     'timestamp',
     'varchar'
   ]
