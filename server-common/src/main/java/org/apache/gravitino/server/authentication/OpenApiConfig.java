@@ -17,21 +17,18 @@
  * under the License.
  */
 
-package org.apache.gravitino.auth;
+package org.apache.gravitino.server.authentication;
 
-/** The type of authenticator for http/https request. */
-public enum AuthenticatorType {
-  /** No authentication. */
-  NONE,
+import org.apache.gravitino.config.ConfigBuilder;
+import org.apache.gravitino.config.ConfigConstants;
+import org.apache.gravitino.config.ConfigEntry;
 
-  /** Simple authentication. */
-  SIMPLE,
+public interface OpenApiConfig {
+  String OPENAPI_CONFIG_PREFIX = "gravitino.authenticator.openapi.";
 
-  /** Authentication that uses OAuth. */
-  OAUTH,
-
-  /** Authentication that uses Kerberos. */
-  KERBEROS,
-
-  OPENAPI
+  ConfigEntry<String> API_KEY =
+      new ConfigBuilder(OPENAPI_CONFIG_PREFIX + "api-key")
+          .doc("The audience name when Gravitino uses OAuth as the authenticator")
+          .version(ConfigConstants.VERSION_0_3_0)
+          .stringConf();
 }

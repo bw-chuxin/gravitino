@@ -40,7 +40,9 @@ public class AuthenticatorFactory {
           AuthenticatorType.OAUTH.name().toLowerCase(),
           OAuth2TokenAuthenticator.class.getCanonicalName(),
           AuthenticatorType.KERBEROS.name().toLowerCase(),
-          KerberosAuthenticator.class.getCanonicalName());
+          KerberosAuthenticator.class.getCanonicalName(),
+          AuthenticatorType.OPENAPI.name().toLowerCase(),
+          OpenApiAuthenticator.class.getCanonicalName());
 
   private AuthenticatorFactory() {}
 
