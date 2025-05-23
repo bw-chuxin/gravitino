@@ -34,7 +34,8 @@ public class FilesetVersionSQLProviderFactory {
           ImmutableMap.of(
               JDBCBackendType.MYSQL, new FilesetVersionMySQLProvider(),
               JDBCBackendType.H2, new FilesetVersionH2Provider(),
-              JDBCBackendType.POSTGRESQL, new FilesetVersionPostgreSQLProvider());
+              JDBCBackendType.POSTGRESQL, new FilesetVersionPostgreSQLProvider(),
+              JDBCBackendType.DAMENG, new FilesetVersionDamengProvider());
 
   public static FilesetVersionBaseSQLProvider getProvider() {
     String databaseId =
@@ -50,6 +51,8 @@ public class FilesetVersionSQLProviderFactory {
   static class FilesetVersionMySQLProvider extends FilesetVersionBaseSQLProvider {}
 
   static class FilesetVersionH2Provider extends FilesetVersionBaseSQLProvider {}
+
+  static class FilesetVersionDamengProvider extends FilesetVersionBaseSQLProvider {}
 
   public static String insertFilesetVersions(
       @Param("filesetVersions") List<FilesetVersionPO> filesetVersionPOs) {

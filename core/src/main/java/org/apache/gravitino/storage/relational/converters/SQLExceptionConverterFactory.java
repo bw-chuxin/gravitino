@@ -42,6 +42,8 @@ public class SQLExceptionConverterFactory {
           converter = new H2ExceptionConverter();
         } else if (jdbcType.equalsIgnoreCase("postgresql")) {
           converter = new PostgreSQLExceptionConverter();
+        } else if (jdbcType.equalsIgnoreCase("dm")) {
+          converter = new DamengExceptionConverter();
         } else {
           throw new IllegalArgumentException(String.format("Unsupported jdbc type: %s", jdbcType));
         }

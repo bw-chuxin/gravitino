@@ -35,7 +35,8 @@ public class GroupRoleRelSQLProviderFactory {
           ImmutableMap.of(
               JDBCBackendType.MYSQL, new GroupRoleRelMySQLProvider(),
               JDBCBackendType.H2, new GroupRoleRelH2Provider(),
-              JDBCBackendType.POSTGRESQL, new GroupRoleRelPostgreSQLProvider());
+              JDBCBackendType.POSTGRESQL, new GroupRoleRelPostgreSQLProvider(),
+              JDBCBackendType.DAMENG, new GroupRoleRelDamengProvider());
 
   public static GroupRoleRelBaseSQLProvider getProvider() {
     String databaseId =
@@ -51,6 +52,8 @@ public class GroupRoleRelSQLProviderFactory {
   static class GroupRoleRelMySQLProvider extends GroupRoleRelBaseSQLProvider {}
 
   static class GroupRoleRelH2Provider extends GroupRoleRelBaseSQLProvider {}
+
+  static class GroupRoleRelDamengProvider extends GroupRoleRelBaseSQLProvider {}
 
   public static String batchInsertGroupRoleRel(
       @Param("groupRoleRels") List<GroupRoleRelPO> groupRoleRelPOS) {

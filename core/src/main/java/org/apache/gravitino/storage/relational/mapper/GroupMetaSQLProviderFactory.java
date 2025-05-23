@@ -33,7 +33,8 @@ public class GroupMetaSQLProviderFactory {
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new GroupMetaMySQLProvider(),
           JDBCBackendType.H2, new GroupMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new GroupMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new GroupMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new GroupMetaDamengProvider());
 
   public static GroupMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -47,6 +48,8 @@ public class GroupMetaSQLProviderFactory {
   }
 
   static class GroupMetaMySQLProvider extends GroupMetaBaseSQLProvider {}
+
+  static class GroupMetaDamengProvider extends GroupMetaBaseSQLProvider {}
 
   public static String selectGroupIdBySchemaIdAndName(
       @Param("metalakeId") Long metalakeId, @Param("groupName") String name) {

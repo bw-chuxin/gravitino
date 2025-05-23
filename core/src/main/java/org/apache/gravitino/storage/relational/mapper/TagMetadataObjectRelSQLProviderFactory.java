@@ -35,7 +35,8 @@ public class TagMetadataObjectRelSQLProviderFactory {
           ImmutableMap.of(
               JDBCBackendType.MYSQL, new TagMetadataObjectRelMySQLProvider(),
               JDBCBackendType.H2, new TagMetadataObjectRelH2Provider(),
-              JDBCBackendType.POSTGRESQL, new TagMetadataObjectRelPostgreSQLProvider());
+              JDBCBackendType.POSTGRESQL, new TagMetadataObjectRelPostgreSQLProvider(),
+              JDBCBackendType.DAMENG, new TagMetadataObjectRelDamengProvider());
 
   public static TagMetadataObjectRelBaseSQLProvider getProvider() {
     String databaseId =
@@ -51,6 +52,8 @@ public class TagMetadataObjectRelSQLProviderFactory {
   static class TagMetadataObjectRelMySQLProvider extends TagMetadataObjectRelBaseSQLProvider {}
 
   static class TagMetadataObjectRelH2Provider extends TagMetadataObjectRelBaseSQLProvider {}
+
+  static class TagMetadataObjectRelDamengProvider extends TagMetadataObjectRelBaseSQLProvider {}
 
   public static String listTagPOsByMetadataObjectIdAndType(
       @Param("metadataObjectId") Long metadataObjectId,

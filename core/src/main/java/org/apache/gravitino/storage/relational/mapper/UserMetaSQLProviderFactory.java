@@ -35,7 +35,8 @@ public class UserMetaSQLProviderFactory {
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new UserMetaMySQLProvider(),
           JDBCBackendType.H2, new UserMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new UserMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new UserMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new UserMetaDamengProvider());
 
   public static UserMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -49,6 +50,8 @@ public class UserMetaSQLProviderFactory {
   }
 
   static class UserMetaMySQLProvider extends UserMetaBaseSQLProvider {}
+
+  static class UserMetaDamengProvider extends UserMetaBaseSQLProvider {}
 
   public static String selectUserIdByMetalakeIdAndName(
       @Param("metalakeId") Long metalakeId, @Param("userName") String userName) {

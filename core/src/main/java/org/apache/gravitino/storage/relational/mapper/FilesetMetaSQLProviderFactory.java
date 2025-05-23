@@ -35,7 +35,8 @@ public class FilesetMetaSQLProviderFactory {
           ImmutableMap.of(
               JDBCBackendType.MYSQL, new FilesetMetaMySQLProvider(),
               JDBCBackendType.H2, new FilesetMetaH2Provider(),
-              JDBCBackendType.POSTGRESQL, new FilesetMetaPostgreSQLProvider());
+              JDBCBackendType.POSTGRESQL, new FilesetMetaPostgreSQLProvider(),
+              JDBCBackendType.DAMENG, new FilesetMetaDamengProvider());
 
   public static FilesetMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -51,6 +52,8 @@ public class FilesetMetaSQLProviderFactory {
   static class FilesetMetaMySQLProvider extends FilesetMetaBaseSQLProvider {}
 
   static class FilesetMetaH2Provider extends FilesetMetaBaseSQLProvider {}
+
+  static class FilesetMetaDamengProvider extends FilesetMetaBaseSQLProvider {}
 
   public static String listFilesetPOsBySchemaId(@Param("schemaId") Long schemaId) {
     return getProvider().listFilesetPOsBySchemaId(schemaId);

@@ -33,7 +33,8 @@ public class OwnerMetaSQLProviderFactory {
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new OwnerMetaMySQLProvider(),
           JDBCBackendType.H2, new OwnerMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new OwnerMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new OwnerMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new OwnerMetaDamengProvider());
 
   public static OwnerMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -49,6 +50,8 @@ public class OwnerMetaSQLProviderFactory {
   static class OwnerMetaMySQLProvider extends OwnerMetaBaseSQLProvider {}
 
   static class OwnerMetaH2Provider extends OwnerMetaBaseSQLProvider {}
+
+  static class OwnerMetaDamengProvider extends OwnerMetaBaseSQLProvider {}
 
   public static String selectUserOwnerMetaByMetadataObjectIdAndType(
       @Param("metadataObjectId") Long metadataObjectId,

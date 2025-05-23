@@ -34,7 +34,8 @@ public class TagMetaSQLProviderFactory {
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new TagMetaMySQLProvider(),
           JDBCBackendType.H2, new TagMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new TagMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new TagMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new TagMetaDamengProvider());
 
   public static TagMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -50,6 +51,8 @@ public class TagMetaSQLProviderFactory {
   static class TagMetaMySQLProvider extends TagMetaBaseSQLProvider {}
 
   static class TagMetaH2Provider extends TagMetaBaseSQLProvider {}
+
+  static class TagMetaDamengProvider extends TagMetaBaseSQLProvider {}
 
   public static String listTagPOsByMetalake(@Param("metalakeName") String metalakeName) {
     return getProvider().listTagPOsByMetalake(metalakeName);

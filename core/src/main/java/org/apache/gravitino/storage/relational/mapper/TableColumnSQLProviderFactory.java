@@ -34,12 +34,15 @@ public class TableColumnSQLProviderFactory {
 
   static class TableColumnMySQLProvider extends TableColumnBaseSQLProvider {}
 
+  static class TableColumnDamengProvider extends TableColumnBaseSQLProvider {}
+
   private static final Map<JDBCBackend.JDBCBackendType, TableColumnBaseSQLProvider>
       TABLE_COLUMN_SQL_PROVIDERS =
           ImmutableMap.of(
               JDBCBackend.JDBCBackendType.MYSQL, new TableColumnMySQLProvider(),
               JDBCBackend.JDBCBackendType.H2, new TableColumnH2Provider(),
-              JDBCBackend.JDBCBackendType.POSTGRESQL, new TableColumnPostgreSQLProvider());
+              JDBCBackend.JDBCBackendType.POSTGRESQL, new TableColumnPostgreSQLProvider(),
+              JDBCBackend.JDBCBackendType.DAMENG, new TableColumnDamengProvider());
 
   public static TableColumnBaseSQLProvider getProvider() {
     String databaseId =

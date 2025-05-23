@@ -35,7 +35,8 @@ public class SecurableObjectSQLProviderFactory {
           ImmutableMap.of(
               JDBCBackendType.MYSQL, new SecurableObjectMySQLProvider(),
               JDBCBackendType.H2, new SecurableObjectH2Provider(),
-              JDBCBackendType.POSTGRESQL, new SecurableObjectPostgreSQLProvider());
+              JDBCBackendType.POSTGRESQL, new SecurableObjectPostgreSQLProvider(),
+              JDBCBackendType.DAMENG, new SecurableObjectDamengProvider());
 
   public static SecurableObjectBaseSQLProvider getProvider() {
     String databaseId =
@@ -51,6 +52,8 @@ public class SecurableObjectSQLProviderFactory {
   static class SecurableObjectMySQLProvider extends SecurableObjectBaseSQLProvider {}
 
   static class SecurableObjectH2Provider extends SecurableObjectBaseSQLProvider {}
+
+  static class SecurableObjectDamengProvider extends SecurableObjectBaseSQLProvider {}
 
   public static String batchInsertSecurableObjects(
       @Param("securableObjects") List<SecurableObjectPO> securableObjectPOs) {

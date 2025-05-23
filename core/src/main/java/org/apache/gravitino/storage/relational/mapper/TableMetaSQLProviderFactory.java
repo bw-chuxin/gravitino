@@ -34,7 +34,8 @@ public class TableMetaSQLProviderFactory {
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new TableMetaMySQLProvider(),
           JDBCBackendType.H2, new TableMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new TableMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new TableMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new TableMetaDamengProvider());
 
   public static TableMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -50,6 +51,8 @@ public class TableMetaSQLProviderFactory {
   static class TableMetaMySQLProvider extends TableMetaBaseSQLProvider {}
 
   static class TableMetaH2Provider extends TableMetaBaseSQLProvider {}
+
+  static class TableMetaDamengProvider extends TableMetaBaseSQLProvider {}
 
   public static String listTablePOsBySchemaId(@Param("schemaId") Long schemaId) {
     return getProvider().listTablePOsBySchemaId(schemaId);

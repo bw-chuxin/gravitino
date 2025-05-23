@@ -34,11 +34,14 @@ public class ModelMetaSQLProviderFactory {
 
   static class ModelMetaH2Provider extends ModelMetaBaseSQLProvider {}
 
+  static class ModelMetaDamengProvider extends ModelMetaBaseSQLProvider {}
+
   private static final Map<JDBCBackendType, ModelMetaBaseSQLProvider> MODEL_META_SQL_PROVIDER_MAP =
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new ModelMetaMySQLProvider(),
           JDBCBackendType.H2, new ModelMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new ModelMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new ModelMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new ModelMetaDamengProvider());
 
   public static ModelMetaBaseSQLProvider getProvider() {
     String databaseId =

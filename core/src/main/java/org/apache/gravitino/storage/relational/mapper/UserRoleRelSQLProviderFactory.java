@@ -36,7 +36,8 @@ public class UserRoleRelSQLProviderFactory {
           ImmutableMap.of(
               JDBCBackendType.MYSQL, new UserRoleRelMySQLProvider(),
               JDBCBackendType.H2, new UserRoleRelH2Provider(),
-              JDBCBackendType.POSTGRESQL, new UserRoleRelPostgreSQLProvider());
+              JDBCBackendType.POSTGRESQL, new UserRoleRelPostgreSQLProvider(),
+              JDBCBackendType.DAMENG, new UserRoleRelDamengProvider());
 
   public static UserRoleRelBaseSQLProvider getProvider() {
     String databaseId =
@@ -52,6 +53,8 @@ public class UserRoleRelSQLProviderFactory {
   static class UserRoleRelMySQLProvider extends UserRoleRelBaseSQLProvider {}
 
   static class UserRoleRelH2Provider extends UserRoleRelBaseSQLProvider {}
+
+  static class UserRoleRelDamengProvider extends UserRoleRelBaseSQLProvider {}
 
   public static String batchInsertUserRoleRel(
       @Param("userRoleRels") List<UserRoleRelPO> userRoleRelPOs) {

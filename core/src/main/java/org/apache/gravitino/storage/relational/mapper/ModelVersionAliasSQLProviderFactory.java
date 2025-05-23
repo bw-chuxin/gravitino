@@ -33,12 +33,15 @@ public class ModelVersionAliasSQLProviderFactory {
 
   static class ModelVersionAliasRelMySQLProvider extends ModelVersionAliasRelBaseSQLProvider {}
 
+  static class ModelVersionAliasRelDamengProvider extends ModelVersionAliasRelBaseSQLProvider {}
+
   private static final Map<JDBCBackendType, ModelVersionAliasRelBaseSQLProvider>
       MODEL_VERSION_META_SQL_PROVIDER_MAP =
           ImmutableMap.of(
               JDBCBackendType.MYSQL, new ModelVersionAliasRelMySQLProvider(),
               JDBCBackendType.H2, new ModelVersionAliasRelH2SQLProvider(),
-              JDBCBackendType.POSTGRESQL, new ModelVersionAliasRelPostgreSQLProvider());
+              JDBCBackendType.POSTGRESQL, new ModelVersionAliasRelPostgreSQLProvider(),
+              JDBCBackendType.DAMENG, new ModelVersionAliasRelDamengProvider());
 
   public static ModelVersionAliasRelBaseSQLProvider getProvider() {
     String databaseId =

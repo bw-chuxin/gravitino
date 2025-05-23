@@ -35,7 +35,8 @@ public class TopicMetaSQLProviderFactory {
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new TopicMetaMySQLProvider(),
           JDBCBackendType.H2, new TopicMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new TopicMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new TopicMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new TopicMetaDamengProvider());
 
   public static TopicMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -51,6 +52,8 @@ public class TopicMetaSQLProviderFactory {
   static class TopicMetaMySQLProvider extends TopicMetaBaseSQLProvider {}
 
   static class TopicMetaH2Provider extends TopicMetaBaseSQLProvider {}
+
+  static class TopicMetaDamengProvider extends TopicMetaBaseSQLProvider {}
 
   public static String insertTopicMeta(@Param("topicMeta") TopicPO topicPO) {
     return getProvider().insertTopicMeta(topicPO);

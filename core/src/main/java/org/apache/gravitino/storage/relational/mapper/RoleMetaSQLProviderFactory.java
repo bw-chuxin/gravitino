@@ -32,7 +32,8 @@ public class RoleMetaSQLProviderFactory {
       ImmutableMap.of(
           JDBCBackendType.MYSQL, new RoleMetaMySQLProvider(),
           JDBCBackendType.H2, new RoleMetaH2Provider(),
-          JDBCBackendType.POSTGRESQL, new RoleMetaPostgreSQLProvider());
+          JDBCBackendType.POSTGRESQL, new RoleMetaPostgreSQLProvider(),
+          JDBCBackendType.DAMENG, new RoleMetaDamengProvider());
 
   public static RoleMetaBaseSQLProvider getProvider() {
     String databaseId =
@@ -48,6 +49,8 @@ public class RoleMetaSQLProviderFactory {
   static class RoleMetaMySQLProvider extends RoleMetaBaseSQLProvider {}
 
   static class RoleMetaH2Provider extends RoleMetaBaseSQLProvider {}
+
+  static class RoleMetaDamengProvider extends RoleMetaBaseSQLProvider {}
 
   public static String selectRoleMetaByMetalakeIdAndName(
       @Param("metalakeId") Long metalakeId, @Param("roleName") String roleName) {
