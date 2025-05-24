@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.SchemaMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.SchemaMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.SchemaMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.SchemaPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -51,8 +52,6 @@ public class SchemaMetaSQLProviderFactory {
   static class SchemaMetaMySQLProvider extends SchemaMetaBaseSQLProvider {}
 
   static class SchemaMetaH2Provider extends SchemaMetaBaseSQLProvider {}
-
-  static class SchemaMetaDamengProvider extends SchemaMetaBaseSQLProvider {}
 
   public static String listSchemaPOsBySchemaIds(@Param("schemaIds") List<Long> schemaIds) {
     return getProvider().listSchemaPOsBySchemaIds(schemaIds);

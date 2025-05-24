@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.CatalogMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.CatalogMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.CatalogMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.CatalogPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -53,8 +54,6 @@ public class CatalogMetaSQLProviderFactory {
   static class CatalogMetaMySQLProvider extends CatalogMetaBaseSQLProvider {}
 
   static class CatalogMetaH2Provider extends CatalogMetaBaseSQLProvider {}
-
-  static class CatalogMetaDamengProvider extends CatalogMetaBaseSQLProvider {}
 
   public static String listCatalogPOsByMetalakeName(@Param("metalakeName") String metalakeName) {
     return getProvider().listCatalogPOsByMetalakeName(metalakeName);
