@@ -22,6 +22,7 @@ import com.google.common.collect.ImmutableMap;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.RoleMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.RoleMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.RoleMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.RolePO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -49,8 +50,6 @@ public class RoleMetaSQLProviderFactory {
   static class RoleMetaMySQLProvider extends RoleMetaBaseSQLProvider {}
 
   static class RoleMetaH2Provider extends RoleMetaBaseSQLProvider {}
-
-  static class RoleMetaDamengProvider extends RoleMetaBaseSQLProvider {}
 
   public static String selectRoleMetaByMetalakeIdAndName(
       @Param("metalakeId") Long metalakeId, @Param("roleName") String roleName) {

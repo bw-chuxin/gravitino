@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.UserRoleRelBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.UserRoleRelDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.UserRoleRelPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.UserRoleRelPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -53,8 +54,6 @@ public class UserRoleRelSQLProviderFactory {
   static class UserRoleRelMySQLProvider extends UserRoleRelBaseSQLProvider {}
 
   static class UserRoleRelH2Provider extends UserRoleRelBaseSQLProvider {}
-
-  static class UserRoleRelDamengProvider extends UserRoleRelBaseSQLProvider {}
 
   public static String batchInsertUserRoleRel(
       @Param("userRoleRels") List<UserRoleRelPO> userRoleRelPOs) {

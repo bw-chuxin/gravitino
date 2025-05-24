@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.SecurableObjectBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.SecurableObjectDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.SecurableObjectPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.SecurableObjectPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -52,8 +53,6 @@ public class SecurableObjectSQLProviderFactory {
   static class SecurableObjectMySQLProvider extends SecurableObjectBaseSQLProvider {}
 
   static class SecurableObjectH2Provider extends SecurableObjectBaseSQLProvider {}
-
-  static class SecurableObjectDamengProvider extends SecurableObjectBaseSQLProvider {}
 
   public static String batchInsertSecurableObjects(
       @Param("securableObjects") List<SecurableObjectPO> securableObjectPOs) {

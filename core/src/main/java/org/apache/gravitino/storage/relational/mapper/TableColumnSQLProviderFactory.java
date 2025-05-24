@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend;
 import org.apache.gravitino.storage.relational.mapper.provider.base.TableColumnBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.TableColumnDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.TableColumnPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.ColumnPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -33,8 +34,6 @@ public class TableColumnSQLProviderFactory {
   static class TableColumnH2Provider extends TableColumnBaseSQLProvider {}
 
   static class TableColumnMySQLProvider extends TableColumnBaseSQLProvider {}
-
-  static class TableColumnDamengProvider extends TableColumnBaseSQLProvider {}
 
   private static final Map<JDBCBackend.JDBCBackendType, TableColumnBaseSQLProvider>
       TABLE_COLUMN_SQL_PROVIDERS =
