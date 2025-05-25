@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.FilesetMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.FilesetMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.FilesetMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.FilesetPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -52,8 +53,6 @@ public class FilesetMetaSQLProviderFactory {
   static class FilesetMetaMySQLProvider extends FilesetMetaBaseSQLProvider {}
 
   static class FilesetMetaH2Provider extends FilesetMetaBaseSQLProvider {}
-
-  static class FilesetMetaDamengProvider extends FilesetMetaBaseSQLProvider {}
 
   public static String listFilesetPOsBySchemaId(@Param("schemaId") Long schemaId) {
     return getProvider().listFilesetPOsBySchemaId(schemaId);

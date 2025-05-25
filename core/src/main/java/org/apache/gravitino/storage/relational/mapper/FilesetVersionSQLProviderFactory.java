@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.FilesetVersionBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.FilesetVersionDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.FilesetVersionPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.FilesetVersionPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -51,8 +52,6 @@ public class FilesetVersionSQLProviderFactory {
   static class FilesetVersionMySQLProvider extends FilesetVersionBaseSQLProvider {}
 
   static class FilesetVersionH2Provider extends FilesetVersionBaseSQLProvider {}
-
-  static class FilesetVersionDamengProvider extends FilesetVersionBaseSQLProvider {}
 
   public static String insertFilesetVersions(
       @Param("filesetVersions") List<FilesetVersionPO> filesetVersionPOs) {
