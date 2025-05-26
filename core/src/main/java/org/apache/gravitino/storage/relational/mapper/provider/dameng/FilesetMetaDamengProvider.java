@@ -3,9 +3,46 @@ package org.apache.gravitino.storage.relational.mapper.provider.dameng;
 import static org.apache.gravitino.storage.relational.mapper.FilesetMetaMapper.META_TABLE_NAME;
 
 import org.apache.gravitino.storage.relational.mapper.provider.base.FilesetMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.po.FilesetPO;
 import org.apache.ibatis.annotations.Param;
 
 public class FilesetMetaDamengProvider extends FilesetMetaBaseSQLProvider {
+  @Override
+  public String insertFilesetMetaOnDuplicateKeyUpdate(@Param("filesetMeta") FilesetPO filesetPO) {
+    return "MERGE INTO "
+        + META_TABLE_NAME
+        + " AS target "
+        + "USING (SELECT #{filesetMeta.filesetId} AS fileset_id) AS source "
+        + "ON target.fileset_id = source.fileset_id "
+        + "WHEN MATCHED THEN "
+        + "UPDATE SET "
+        + "target.fileset_name = #{filesetMeta.filesetName}, "
+        + "target.metalake_id = #{filesetMeta.metalakeId}, "
+        + "target.catalog_id = #{filesetMeta.catalogId}, "
+        + "target.schema_id = #{filesetMeta.schemaId}, "
+        + "target.type = #{filesetMeta.type}, "
+        + "target.audit_info = #{filesetMeta.auditInfo}, "
+        + "target.current_version = #{filesetMeta.currentVersion}, "
+        + "target.last_version = #{filesetMeta.lastVersion}, "
+        + "target.deleted_at = #{filesetMeta.deletedAt} "
+        + "WHEN NOT MATCHED THEN "
+        + "INSERT ("
+        + "fileset_id, fileset_name, metalake_id, catalog_id, schema_id, type, audit_info, "
+        + "current_version, last_version, deleted_at"
+        + ") VALUES ("
+        + "#{filesetMeta.filesetId}, "
+        + "#{filesetMeta.filesetName}, "
+        + "#{filesetMeta.metalakeId}, "
+        + "#{filesetMeta.catalogId}, "
+        + "#{filesetMeta.schemaId}, "
+        + "#{filesetMeta.type}, "
+        + "#{filesetMeta.auditInfo}, "
+        + "#{filesetMeta.currentVersion}, "
+        + "#{filesetMeta.lastVersion}, "
+        + "#{filesetMeta.deletedAt}"
+        + ")";
+  }
+
   public String softDeleteFilesetMetasByMetalakeId(@Param("metalakeId") Long metalakeId) {
     return "UPDATE "
         + META_TABLE_NAME
