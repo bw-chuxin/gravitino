@@ -22,6 +22,7 @@ import com.google.common.collect.ImmutableMap;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.GroupMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.GroupMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.h2.GroupMetaH2Provider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.GroupMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.GroupPO;
@@ -48,8 +49,6 @@ public class GroupMetaSQLProviderFactory {
   }
 
   static class GroupMetaMySQLProvider extends GroupMetaBaseSQLProvider {}
-
-  static class GroupMetaDamengProvider extends GroupMetaBaseSQLProvider {}
 
   public static String selectGroupIdBySchemaIdAndName(
       @Param("metalakeId") Long metalakeId, @Param("groupName") String name) {

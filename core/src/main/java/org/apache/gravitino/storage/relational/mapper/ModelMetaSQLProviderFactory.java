@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.ModelMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.ModelMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.ModelMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.ModelPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -33,8 +34,6 @@ public class ModelMetaSQLProviderFactory {
   static class ModelMetaMySQLProvider extends ModelMetaBaseSQLProvider {}
 
   static class ModelMetaH2Provider extends ModelMetaBaseSQLProvider {}
-
-  static class ModelMetaDamengProvider extends ModelMetaBaseSQLProvider {}
 
   private static final Map<JDBCBackendType, ModelMetaBaseSQLProvider> MODEL_META_SQL_PROVIDER_MAP =
       ImmutableMap.of(

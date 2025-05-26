@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.MetalakeMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.MetalakeMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.MetalakeMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.MetalakePO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -53,8 +54,6 @@ public class MetalakeMetaSQLProviderFactory {
   static class MetalakeMetaMySQLProvider extends MetalakeMetaBaseSQLProvider {}
 
   static class MetalakeMetaH2Provider extends MetalakeMetaBaseSQLProvider {}
-
-  static class MetalakeMetaDamengProvider extends MetalakeMetaBaseSQLProvider {}
 
   public String listMetalakePOs() {
     return getProvider().listMetalakePOs();

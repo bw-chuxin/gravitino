@@ -22,6 +22,7 @@ import com.google.common.collect.ImmutableMap;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.OwnerMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.OwnerMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.OwnerMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.OwnerRelPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -50,8 +51,6 @@ public class OwnerMetaSQLProviderFactory {
   static class OwnerMetaMySQLProvider extends OwnerMetaBaseSQLProvider {}
 
   static class OwnerMetaH2Provider extends OwnerMetaBaseSQLProvider {}
-
-  static class OwnerMetaDamengProvider extends OwnerMetaBaseSQLProvider {}
 
   public static String selectUserOwnerMetaByMetadataObjectIdAndType(
       @Param("metadataObjectId") Long metadataObjectId,

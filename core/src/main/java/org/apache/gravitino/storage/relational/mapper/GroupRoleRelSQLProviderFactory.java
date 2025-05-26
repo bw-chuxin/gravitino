@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.GroupRoleRelBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.GroupRoleRelDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.GroupRoleRelPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.GroupRoleRelPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -52,8 +53,6 @@ public class GroupRoleRelSQLProviderFactory {
   static class GroupRoleRelMySQLProvider extends GroupRoleRelBaseSQLProvider {}
 
   static class GroupRoleRelH2Provider extends GroupRoleRelBaseSQLProvider {}
-
-  static class GroupRoleRelDamengProvider extends GroupRoleRelBaseSQLProvider {}
 
   public static String batchInsertGroupRoleRel(
       @Param("groupRoleRels") List<GroupRoleRelPO> groupRoleRelPOS) {

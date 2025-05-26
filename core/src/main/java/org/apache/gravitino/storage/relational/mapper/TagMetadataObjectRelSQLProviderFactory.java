@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.TagMetadataObjectRelBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.TagMetadataObjectRelDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.TagMetadataObjectRelPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.TagMetadataObjectRelPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -52,8 +53,6 @@ public class TagMetadataObjectRelSQLProviderFactory {
   static class TagMetadataObjectRelMySQLProvider extends TagMetadataObjectRelBaseSQLProvider {}
 
   static class TagMetadataObjectRelH2Provider extends TagMetadataObjectRelBaseSQLProvider {}
-
-  static class TagMetadataObjectRelDamengProvider extends TagMetadataObjectRelBaseSQLProvider {}
 
   public static String listTagPOsByMetadataObjectIdAndType(
       @Param("metadataObjectId") Long metadataObjectId,

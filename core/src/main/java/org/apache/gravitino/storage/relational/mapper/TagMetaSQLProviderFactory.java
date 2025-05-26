@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.TagMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.TagMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.TagMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.TagPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -51,8 +52,6 @@ public class TagMetaSQLProviderFactory {
   static class TagMetaMySQLProvider extends TagMetaBaseSQLProvider {}
 
   static class TagMetaH2Provider extends TagMetaBaseSQLProvider {}
-
-  static class TagMetaDamengProvider extends TagMetaBaseSQLProvider {}
 
   public static String listTagPOsByMetalake(@Param("metalakeName") String metalakeName) {
     return getProvider().listTagPOsByMetalake(metalakeName);

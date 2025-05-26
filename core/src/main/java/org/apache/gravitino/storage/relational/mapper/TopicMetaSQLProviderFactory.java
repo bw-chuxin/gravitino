@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.gravitino.storage.relational.JDBCBackend.JDBCBackendType;
 import org.apache.gravitino.storage.relational.mapper.provider.base.TopicMetaBaseSQLProvider;
+import org.apache.gravitino.storage.relational.mapper.provider.dameng.TopicMetaDamengProvider;
 import org.apache.gravitino.storage.relational.mapper.provider.postgresql.TopicMetaPostgreSQLProvider;
 import org.apache.gravitino.storage.relational.po.TopicPO;
 import org.apache.gravitino.storage.relational.session.SqlSessionFactoryHelper;
@@ -52,8 +53,6 @@ public class TopicMetaSQLProviderFactory {
   static class TopicMetaMySQLProvider extends TopicMetaBaseSQLProvider {}
 
   static class TopicMetaH2Provider extends TopicMetaBaseSQLProvider {}
-
-  static class TopicMetaDamengProvider extends TopicMetaBaseSQLProvider {}
 
   public static String insertTopicMeta(@Param("topicMeta") TopicPO topicPO) {
     return getProvider().insertTopicMeta(topicPO);
