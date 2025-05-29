@@ -99,6 +99,7 @@ public class DamengTypeConverter extends JdbcTypeConverter {
         return Types.DateType.get();
       case "TIME":
         return Types.TimeType.get();
+      case "DATETIME":
       case "TIMESTAMP":
         return Types.TimestampType.withTimeZone();
       case "BINARY":
